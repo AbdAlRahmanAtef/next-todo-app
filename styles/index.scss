@@ -1,0 +1,155 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --main-color: #d3a069;
+  --bg: #12343b;
+  --text: #ccc;
+  --todo-color: #000;
+  --input: #000000;
+}
+
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: var(--main-color);
+  padding: 30px;
+  text-transform: capitalize;
+  user-select: none;
+}
+.app {
+  max-width: 500px;
+  margin: auto;
+  text-align: center;
+  background-color: var(--bg);
+  border-radius: 10px;
+  box-shadow: 3px 6px 40px #000;
+  overflow: hidden;
+  .title {
+    height: 200px;
+    padding: 30px 10px;
+    box-shadow: 0 6px 10px #000;
+    border-radius: 10px 10px 0 0;
+    h1 {
+      color: var(--text);
+      font-size: 40px;
+      font-weight: 900;
+    }
+    .form {
+      .inputs {
+        padding: 0 20px;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 20px;
+        justify-content: space-between;
+        background-color: var(--bg);
+        height: 100px;
+        input,
+        button {
+          height: 54px;
+          outline: none;
+          border: none;
+          transition: 0.3s;
+          border-radius: 8px;
+        }
+        input {
+          width: calc(100% - 80px);
+          padding: 8px 20px;
+          font-size: 22px;
+          font-weight: bold;
+          border: 1px solid transparent;
+          background-color: var(--input);
+          color: var(--text);
+          &:focus {
+            border-color: var(--text);
+          }
+        }
+        button {
+          width: 54px;
+          background-color: var(--main-color);
+          color: var(--bg);
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  .todos-container {
+    padding: 10px 20px 20px;
+    overflow-y: scroll;
+    height: calc(100vh - 320px);
+    .todo {
+      display: flex;
+      align-items: center;
+      min-height: 54px;
+      justify-content: space-between;
+      gap: 10px;
+      background-color: var(--todo-color);
+      color: var(--text);
+      padding: 10px 20px;
+      margin-top: 20px;
+      border-radius: 8px;
+      font-size: 20px;
+      font-weight: bold;
+      p {
+        text-align: left;
+        white-space: wrap;
+        line-height: 1.5;
+      }
+      &.done {
+        p {
+          text-decoration: line-through;
+        }
+        opacity: 0.6;
+      }
+      > div {
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        input,
+        svg {
+          cursor: pointer;
+        }
+        .check {
+          width: 20px;
+          height: 20px;
+          border: 1px solid var(--text);
+          border-radius: 4px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          svg {
+            fill: var(--text);
+            opacity: 0;
+            transition: 0.3s;
+            &.done {
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+  }
+  .count {
+    color: var(--text);
+    font-size: 18px;
+    font-weight: bold;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 -2px 4px #000;
+  }
+}
+
+.toast {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+}
