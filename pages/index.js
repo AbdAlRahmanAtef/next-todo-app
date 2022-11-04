@@ -1,7 +1,9 @@
+import Image from "next/image";
 import { useContext } from "react";
 import { IoMdAdd } from "react-icons/io";
 import { Todo } from "../components/Todo";
 import { TodoContext } from "../context/TodoContext";
+import empty from "../assets/empty.png";
 
 export default function Home() {
   const {
@@ -78,9 +80,14 @@ export default function Home() {
         </div>
       </div>
       <div className="todos-container">
-        {todos?.map((todo) => (
-          <Todo todo={todo} key={todo.id} />
-        ))}
+        {todos.length > 0 ? (
+          todos?.map((todo) => <Todo todo={todo} key={todo.id} />)
+        ) : (
+          <div className="empty">
+              <Image src={empty} alt="" />
+              <p>Empty List</p>
+          </div>
+        )}
       </div>
       <div className="count">
         Todos: {todos.length} && completed: {todoscount}
