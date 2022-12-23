@@ -84,8 +84,8 @@ export default function Home() {
           todos?.map((todo) => <Todo todo={todo} key={todo.id} />)
         ) : (
           <div className="empty">
-              <Image src={empty} alt="" />
-              <p>Empty List</p>
+            <Image src={empty} alt="" />
+            <p>Empty List</p>
           </div>
         )}
       </div>
